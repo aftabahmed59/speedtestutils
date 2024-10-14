@@ -1,0 +1,34 @@
+name: sync
+  
+on:
+  push:
+    paths:
+      - afs-git-actions/**
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - 
+        name: Checkout speedtestutils
+        uses: actions/checkout@v3
+        with:
+          repository: aftabahmed59/speedtestutils.git
+      - 
+        name: Checkout afs-speedtestutils
+        uses: actions/checkout@v3
+        with:
+          repository: aftabahmed59/afs-speedtestutils.git
+      - 
+        name: Sync Specified Directories
+        run: >
+          cp -r speedtestutils/afs-git-actions/* afs-speedtestutils/afs-git-actions/
+      - 
+        name: Commit Changes to afs-speedtestutils
+        run: >
+          cd afs-speedtestutils
+          git config --global user.name "Aftab Ahmed Shaikh"
+          git config --global user.email "aftabahmed59@gmail.com"
+          git add .
+          git commit -m "Sync directories from speedtestutils to afs-speedtestutils"
+          git push origin master
