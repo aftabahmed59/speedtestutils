@@ -1,5 +1,5 @@
 name: sync
-  
+
 on:
   push:
     paths:
@@ -9,21 +9,23 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - 
+      -
         name: Checkout speedtestutils
         uses: actions/checkout@v3
         with:
-          repository: aftabahmed59/speedtestutils.git
-      - 
+          repository: aftabahmed59/speedtestutils
+          token: ${{ secrets.PAT_TOKEN }}
+      -
         name: Checkout afs-speedtestutils
         uses: actions/checkout@v3
         with:
-          repository: aftabahmed59/afs-speedtestutils.git
-      - 
+          repository: aftabahmed59/afs-speedtestutils
+          token: ${{ secrets.PAT_TOKEN }}
+      -
         name: Sync Specified Directories
         run: >
           cp -r speedtestutils/afs-git-actions/* afs-speedtestutils/afs-git-actions/
-      - 
+      -
         name: Commit Changes to afs-speedtestutils
         run: >
           cd afs-speedtestutils
