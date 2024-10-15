@@ -27,10 +27,10 @@ jobs:
           cp -r speedtestutils/afs-git-actions/ afs-speedtestutils/afs-git-actions/
       -
         name: Commit Changes to afs-speedtestutils
-        run: >
+        run: |
           cd afs-speedtestutils
           git config --global user.name "Aftab Ahmed Shaikh"
           git config --global user.email "aftabahmed59@gmail.com"
           git add .
-          git commit -m "Sync directories from speedtestutils to afs-speedtestutils"
+          git commit -m "Sync directories from speedtestutils to afs-speedtestutils" || echo "No changes to commit"
           git push origin master
