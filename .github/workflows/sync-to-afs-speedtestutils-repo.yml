@@ -14,13 +14,13 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: aftabahmed59/speedtestutils
-          token: ${{ secrets.PAT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
       -
         name: Checkout afs-speedtestutils
         uses: actions/checkout@v3
         with:
           repository: aftabahmed59/afs-speedtestutils
-          token: ${{ secrets.PAT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
       -
         name: Sync Specified Directories
         run: >
