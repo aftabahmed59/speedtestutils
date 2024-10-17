@@ -36,4 +36,6 @@ jobs:
           git config --global user.email "aftabahmed59@gmail.com"
           git add .
           git commit -m "Sync directories from speedtestutils to afs-speedtestutils" || echo "No changes to commit"
-          git push origin master
+          git push https://$ACTIONS_TOKEN@github.com/aftabahmed59/afs-speedtestutils.git master
+        env:
+          ACTIONS_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
